@@ -12,7 +12,7 @@ build_property.RootNamespace = iMarket
 build_property.ProjectDir = D:\iprojects\iMarket\iMarket\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\iprojects\iMarket\iMarket
 build_property._RazorSourceGeneratorDebug = 
 
@@ -22,6 +22,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/iprojects/iMarket/iMarket/Areas/Admin/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/iprojects/iMarket/iMarket/Areas/Admin/Views/Shared/_SideNavPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9TaWRlTmF2UGFydGlhbFZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/iprojects/iMarket/iMarket/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
