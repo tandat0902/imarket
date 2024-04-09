@@ -1,0 +1,67 @@
+﻿@model IEnumerable<iMarket.Models.Role>
+
+@{
+    ViewData["Title"] = "Quản lý quyền truy cập";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-3">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Quản lý quyền truy cập</li>
+    </ol>
+</nav>
+
+<div>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">QUẢN LÝ QUYỀN TRUY CẬP</h4>
+            <p>
+                <a asp-action="Create" class="btn icon icon-left btn-success"><i data-feather="plus-square"></i> Tạo mới</a>
+            </p>
+            <div class="row" id="table-borderless">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-borderless mb-0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Tên quyền truy cập
+                                    </th>
+                                    <th>
+                                        Mô tả
+                                    </th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.RoleId)
+                                        </td>
+                                        <td class="text-bold-500">
+                                            @Html.DisplayFor(modelItem => item.RoleName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Description)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Details" asp-route-id="@item.RoleId" class="btn icon icon-left btn-info"><i data-feather="info"></i>Xem</a>
+                                            <a asp-action="Edit" asp-route-id="@item.RoleId" class="btn icon icon-left btn-primary"><i data-feather="edit"></i>Sửa</a>
+                                            <a asp-action="Delete" asp-route-id="@item.RoleId" class="btn icon icon-left btn-danger"><i data-feather="delete"></i> Xóa</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

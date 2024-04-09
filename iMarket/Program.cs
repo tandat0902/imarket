@@ -1,8 +1,17 @@
 using AspNetCoreHero.ToastNotification;
+using iMarket.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var stringConnectDB = builder.Configuration.GetConnectionString("iMarketDB");
+builder.Services.AddDbContext<iMarketDBContext>(options => options.UseSqlServer(stringConnectDB));
+
+builder.Services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.All }));
+
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
 

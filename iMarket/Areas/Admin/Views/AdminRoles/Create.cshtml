@@ -1,0 +1,56 @@
+﻿@model iMarket.Models.Role
+
+@{
+    ViewData["Title"] = "Thêm mới quyền truy cập";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-3">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Quản lý quyền truy cập</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Thêm mới quyền truy cập</li>
+    </ol>
+</nav>
+
+<div>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">CHỈNH SỬA QUYỀN TRUY CẬP</h4>
+            <div class="col-md-6 col-12">
+                <div class="card-content">
+                    <div class="card-body">
+                        <form class="form form-vertical" form asp-action="Create">
+                            <div class="form-body mb-3">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label asp-for="RoleName" class="control-label">Tên quyền truy cập</label>
+                                            <input asp-for="RoleName" class="form-control" />
+                                            <span asp-validation-for="RoleName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label asp-for="Description" class="control-label">Mô tả</label>
+                                            <input asp-for="Description" class="form-control" />
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Tạo mới" class="btn btn-primary" /> |
+                                <a asp-action="Index">Quay lại</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

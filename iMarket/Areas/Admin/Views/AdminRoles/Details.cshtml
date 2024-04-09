@@ -1,0 +1,44 @@
+﻿@model iMarket.Models.Role
+
+@{
+    ViewData["Title"] = "Thông tin quyền truy cập";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-3">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Quản lý quyền truy cập</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Thông tin quyền truy cập</li>
+    </ol>
+</nav>
+
+<div>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">THÔNG TIN QUYỀN TRUY CẬP</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">ID:</td>
+                            <td>@Html.DisplayFor(model => model.RoleId)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Tên quyền truy cập:</td>
+                            <td>@Html.DisplayFor(model => model.RoleName)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Mô tả:</td>
+                            <td>@Html.DisplayFor(model => model.Description)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <a asp-action="Index">Quay lại</a>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -230,3 +230,10 @@ Add Constraint FK_Orders_TransactStatus Foreign Key(TransactStatusID) References
 Alter Table OrderDetails
 Add Constraint FK_OrderDetails_Orders Foreign Key(OrderID) References Orders(OrderID),
 	Constraint FK_OrderDetails_Products Foreign Key(ProductID) References Products(ProductID)
+
+--------------------------------------- INSERT DATA IN TABLE ---------------------------------------
+--------------- INSERT DATA ROLES TABLE
+Insert Into Roles(RoleName, Description)
+VALUES
+(N'Admin', N''),
+(N'Staff', N'');
