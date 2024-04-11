@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using iMarket.Models;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace iMarket.Areas.Admin.Controllers
 {
@@ -13,10 +14,12 @@ namespace iMarket.Areas.Admin.Controllers
     public class AdminRolesController : Controller
     {
         private readonly iMarketDBContext _context;
+        public INotyfService _notyfService { get; }
 
-        public AdminRolesController(iMarketDBContext context)
+        public AdminRolesController(iMarketDBContext context, INotyfService notyfService)
         {
             _context = context;
+            _notyfService = notyfService;
         }
 
         // GET: Admin/AdminRoles
@@ -62,6 +65,7 @@ namespace iMarket.Areas.Admin.Controllers
             {
                 _context.Add(role);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Thêm dữ liệu thành công!");
                 return RedirectToAction(nameof(Index));
             }
             return View(role);
@@ -101,11 +105,13 @@ namespace iMarket.Areas.Admin.Controllers
                 {
                     _context.Update(role);
                     await _context.SaveChangesAsync();
+                    _notyfService.Success("Cập nhật dữ liệu thành công!");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!RoleExists(role.RoleId))
                     {
+                        _notyfService.Error("Có lỗi xảy ra!");
                         return NotFound();
                     }
                     else
@@ -152,6 +158,7 @@ namespace iMarket.Areas.Admin.Controllers
             }
             
             await _context.SaveChangesAsync();
+            _notyfService.Success("Xóa dữ liệu thành công!");
             return RedirectToAction(nameof(Index));
         }
 

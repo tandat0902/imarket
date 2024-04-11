@@ -1,0 +1,86 @@
+﻿@model iMarket.Models.Account
+
+@{
+    ViewData["Title"] = "Thông tin tài khoản quản trị";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-3">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="AdminAccounts" asp-action="Index">Quản lý tài khoản quản trị</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Thông tin tài khoản quản trị</li>
+    </ol>
+</nav>
+
+
+<div>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">THÔNG TIN TÀI KHOẢN QUẢN TRỊ</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td class="text-bold-500 col-md-3">ID:</td>
+                            <td>@Html.DisplayFor(model => model.AccountId)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-3">Họ tên:</td>
+                            <td>@Html.DisplayFor(model => model.FullName)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-3">Số điện thoại:</td>
+                            <td>@Html.DisplayFor(model => model.PhoneNumber)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-3">Email:</td>
+                            <td>@Html.DisplayFor(model => model.Email)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-3">Trạng thái:</td>
+                            <td>
+                                @if (Model.Active == true)
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <span class="badge bg-success">Hoạt động</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-items-center">
+                                        <span class="badge bg-danger">Ngưng hoạt động</span>
+                                    </div>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-3">Mật khẩu:</td>
+                            <td>@Html.DisplayFor(model => model.Password)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-3">Mã hóa:</td>
+                            <td>@Html.DisplayFor(model => model.Salt)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-3">Quyền truy cập:</td>
+                            <td>@Html.DisplayFor(model => model.RoleId)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-3">Đăng nhập lần cuối:</td>
+                            <td>@Html.DisplayFor(model => model.LastLogin)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-3">Ngày tạo:</td>
+                            <td>@Html.DisplayFor(model => model.DateCreated)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <a asp-action="Index">Quay lại</a>
+            </div>
+        </div>
+    </div>
+</div>
+

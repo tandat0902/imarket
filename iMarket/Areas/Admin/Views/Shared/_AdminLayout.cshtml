@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMarket - 🥬</title>
+    <title>iMarket - @ViewData["Title"]</title>
 
     <link rel="stylesheet" href="~/adminassets/css/bootstrap.css">
 
@@ -108,5 +108,8 @@
     <script src="~/adminassets/js/pages/dashboard.js"></script>
 
     <script src="~/adminassets/js/main.js"></script>
+
+    @await Component.InvokeAsync("Notyf")
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
