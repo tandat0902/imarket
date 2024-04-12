@@ -1,0 +1,153 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<iMarket.Models.Product>
+
+@{
+    int CurrentPage = ViewBag.CurrentPage;
+    ViewData["Title"] = "Danh sách sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-3">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Danh sách sản phẩm</li>
+    </ol>
+</nav>
+
+
+<div>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">DANH SÁCH SẢN PHẨM - TRANG @CurrentPage</h4>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <fieldset class="form-group">
+                        <select class="form-select" id="catid" name="catid" asp-items="ViewBag.CategoryList" style="box-shadow:none">
+                            <option disabled selected>-- Chọn danh mục --</option>
+                            <option value="0">Tất cả</option>
+                        </select>
+                    </fieldset>
+                </div>                
+                <div class="col-md-9 mb-4">
+                    <p class="float-end">
+                        <a asp-action="Create" class="btn icon icon-left btn-primary"><i data-feather="plus-square"></i> Tạo mới</a>
+                    </p>
+                </div>
+
+            </div>
+            <div class="row" id="table-borderless">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-borderless mb-0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Tên sản phẩm
+                                    </th>
+                                    <th>
+                                        Danh mục
+                                    </th>
+                                    <th>
+                                        Giá
+                                    </th>
+                                    <th>
+                                        Tồn kho
+                                    </th>
+                                    <th>
+                                        Trạng thái
+                                    </th>
+                                    <th>
+                                        Thao tác
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ProductId)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ProductName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                                            </td>
+                                            <td>
+                                                 @item.UnitPrice.Value.ToString("#,##0") vnđ
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.UnitsInStock)
+                                            </td>
+                                            <td>
+                                                @if(item.UnitsInStock > 0)
+                                                {
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="badge bg-success">Còn hàng</span>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="badge bg-danger">Hết hàng</span>
+                                                    </div>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a asp-action="Details" asp-route-id="@item.ProductId" class="btn icon icon-left btn-info" title="Xem chi tiết"><i data-feather="info"></i></a> |
+                                                <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn icon icon-left btn-success" title="Chỉnh sửa"><i data-feather="edit"></i></a> |
+                                                <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn icon icon-left btn-danger" title="Xóa"><i data-feather="delete"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="dataTable-bottom">
+                <ul class="pagination pagination-primary float-end dataTable-pagination">
+                    <pager class="pager-container" list="@Model" asp-area="Admin" asp-controller="AdminProducts" asp-route-catId="@ViewBag.CurrentCatID" asp-action="Index"></pager>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            jQuery("#catid").change(function () {
+                var catID = jQuery(this).children(":selected").attr("value");
+                catID = parseFloat(catID);
+                $('#catid option').removeAttr('selected');
+                $("#catid > [value = " + catID + "]").attr("selected", "true");
+
+                $.ajax({
+                    url: '/Admin/AdminProducts/Filter',
+                    datatype: "json",
+                    type: "GET",
+                    data: {
+                        catId: catID
+                    },
+                    async: true,
+                    success: function (results) {
+                        if (results.status == "success") {
+                            window.location.href = results.redirectUrl;
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error')
+                    }
+                });
+            });
+        });
+    </script>
+}

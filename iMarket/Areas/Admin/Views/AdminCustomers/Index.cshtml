@@ -3,7 +3,7 @@
 
 @{
     int CurrentPage = ViewBag.CurrentPage;
-    ViewData["Title"] = "Danh sách khách hàng trang";
+    ViewData["Title"] = "Danh sách khách hàng";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -115,34 +115,8 @@
                 </div>
             </div>
             <div class="dataTable-bottom">
-                <div class="dataTable-info">
-                    Showing 1 to 5 of 26 entries
-                </div>
                 <ul class="pagination pagination-primary float-end dataTable-pagination">
-                    <li class="page-item pager">
-                        <a href="#" class="page-link" data-page="1">‹</a>
-                    </li>
-                    <li class="page-item active">
-                        <a href="#" class="page-link" data-page="1">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a href="#" class="page-link" data-page="2">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a href="#" class="page-link" data-page="3">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a href="#" class="page-link" data-page="4">4</a>
-                    </li>
-                    <li class="page-item">
-                        <a href="#" class="page-link" data-page="5">5</a>
-                    </li>
-                    <li class="page-item">
-                        <a href="#" class="page-link" data-page="6">6</a>
-                    </li>
-                    <li class="page-item pager">
-                        <a href="#" class="page-link" data-page="2">›</a>
-                    </li>
+                    <pager class="pager-container" list="@Model" asp-area="Admin" asp-controller="AdminCustomers" asp-action="Index"></pager>
                 </ul>
             </div>
         </div>

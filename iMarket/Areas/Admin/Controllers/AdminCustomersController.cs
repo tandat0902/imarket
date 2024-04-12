@@ -24,7 +24,7 @@ namespace iMarket.Areas.Admin.Controllers
         public IActionResult Index(int? page)
         {
             var pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var pageSize = 20;
+            var pageSize = 15;
             var CustomerList = _context.Customers.AsNoTracking().Include(x => x.Location).OrderByDescending(x => x.DateCreated);
             PagedList<Customer> models = new PagedList<Customer>(CustomerList, pageNumber, pageSize);
             ViewBag.CurrentPage = pageNumber;
