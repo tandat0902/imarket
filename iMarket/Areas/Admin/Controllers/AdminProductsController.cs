@@ -9,6 +9,7 @@ using iMarket.Models;
 using PagedList.Core;
 using System.Dynamic;
 using MessagePack;
+using iMarket.Helpper;
 
 namespace iMarket.Areas.Admin.Controllers
 {
@@ -88,10 +89,25 @@ namespace iMarket.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ShortDesc,Description,UnitPrice,Discount,Thumbnail,Video,DateCreated,DateModified,BestSellers,HomeFlag,Active,Tags,Title,Alias,MetaDesc,MetaKey,UnitsInStock,CategoryId")] Product product)
+        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ShortDesc,Description,UnitPrice,Discount,Thumbnail,Video,DateCreated,DateModified,BestSellers,HomeFlag,Active,Tags,Title,Alias,MetaDesc,MetaKey,UnitsInStock,CategoryId")] Product product, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (ModelState.IsValid)
             {
+                product.ProductName = Utilities.toTitleCase(product.ProductName);
+                if(fThumb != null)
+                {
+                    string extension = Path.GetExtension(fThumb.FileName);
+                    string image = Utilities.seoUrl(product.ProductName) + extension;
+                    product.Thumbnail = await Utilities.uploadFile(fThumb, @"products", image.ToLower());
+                }
+                if (string.IsNullOrEmpty(product.Thumbnail))
+                {
+                    product.Thumbnail = "default.jpg";
+                }
+                product.Alias = Utilities.seoUrl(product.ProductName);
+                product.DateCreated = DateTime.Now;
+                product.DateModified = DateTime.Now;
+
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -122,7 +138,7 @@ namespace iMarket.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ShortDesc,Description,UnitPrice,Discount,Thumbnail,Video,DateCreated,DateModified,BestSellers,HomeFlag,Active,Tags,Title,Alias,MetaDesc,MetaKey,UnitsInStock,CategoryId")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ShortDesc,Description,UnitPrice,Discount,Thumbnail,Video,DateCreated,DateModified,BestSellers,HomeFlag,Active,Tags,Title,Alias,MetaDesc,MetaKey,UnitsInStock,CategoryId")] Product product, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (id != product.ProductId)
             {
@@ -133,6 +149,20 @@ namespace iMarket.Areas.Admin.Controllers
             {
                 try
                 {
+                    product.ProductName = Utilities.toTitleCase(product.ProductName);
+                    if (fThumb != null)
+                    {
+                        string extension = Path.GetExtension(fThumb.FileName);
+                        string image = Utilities.seoUrl(product.ProductName) + extension;
+                        product.Thumbnail = await Utilities.uploadFile(fThumb, @"products", image.ToLower());
+                    }
+                    if (string.IsNullOrEmpty(product.Thumbnail))
+                    {
+                        product.Thumbnail = "default.jpg";
+                    }
+                    product.Alias = Utilities.seoUrl(product.ProductName);
+                    product.DateModified = DateTime.Now;
+
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
