@@ -1,0 +1,53 @@
+﻿@model List<Product>
+
+@if (Model != null)
+{
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @item.UnitPrice.Value.ToString("#,##0") VNĐ
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitsInStock)
+            </td>
+            <td>
+                @if (!item.Active)
+                {
+                    <div class="d-flex align-items-center">
+                        <span class="badge bg-warning">Tạm ngưng</span>
+                    </div>
+                }
+                else
+                {
+                    if (item.UnitsInStock > 0)
+                    {
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-success">Còn hàng</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-danger">Hết hàng</span>
+                        </div>
+                    }
+                }
+            </td>
+            <td>
+                <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-custom btn-custom-view btn-none-box-shadow" title="Xem chi tiết"><b>Xem</b></a>
+                <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-custom btn-custom-delete btn-none-box-shadow" title="Xóa"><b>Xóa</b></a>
+                <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-custom btn-custom-edit btn-none-box-shadow" title="Chỉnh sửa"><b>Sửa</b></a>
+            </td>
+        </tr>
+    }
+}

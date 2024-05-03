@@ -1,133 +1,110 @@
 ﻿@model iMarket.Models.Product
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Model.ProductName + " • Thông tin sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Details</h1>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-3">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index">Quản lý sản phẩm</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Thông tin sản phẩm</li>
+    </ol>
+</nav>
 
 <div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProductName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ShortDesc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ShortDesc)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UnitPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UnitPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Discount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Discount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Thumbnail)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Thumbnail)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Video)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Video)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateCreated)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateCreated)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateModified)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateModified)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BestSellers)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BestSellers)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HomeFlag)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HomeFlag)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Active)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Active)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tags)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tags)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Alias)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Alias)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MetaDesc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MetaDesc)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MetaKey)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MetaKey)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UnitsInStock)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UnitsInStock)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Category.CategoryId)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProductId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">THÔNG TIN SẢN PHẨM - @Model.ProductName.ToUpper()</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">ID:</td>
+                            <td>@Html.DisplayFor(model => model.ProductId)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Ảnh sản phẩm:</td>
+                            <td>
+                                <img src="~/images/products/default.jpg" width="150">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Tên sản phẩm:</td>
+                            <td>@Html.DisplayFor(model => model.ProductName)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Danh mục:</td>
+                            <td>@Html.DisplayFor(model => model.Category.CategoryName)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Đơn giá:</td>
+                            <td>@Model.UnitPrice.Value.ToString("#,##0") vnđ</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Discount:</td>
+                            <td>@Html.DisplayFor(model => model.Discount) %</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Tồn kho:</td>
+                            <td>@Html.DisplayFor(model => model.UnitsInStock)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Mô tả:</td>
+                            <td>@Html.DisplayFor(model => model.Description)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Trạng thái:</td>
+                            <td>@Html.DisplayFor(model => model.Active)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Bán chạy:</td>
+                            <td>@Html.DisplayFor(model => model.BestSellers)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Trang đầu:</td>
+                            <td>@Html.DisplayFor(model => model.HomeFlag)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Tags:</td>
+                            <td>@Html.DisplayFor(model => model.Tags)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Tiêu đề:</td>
+                            <td>@Html.DisplayFor(model => model.Title)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Alias:</td>
+                            <td>@Html.DisplayFor(model => model.Alias)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Ngày tạo:</td>
+                            <td>@Html.DisplayFor(model => model.DateCreated)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Ngày sửa:</td>
+                            <td>@Html.DisplayFor(model => model.DateModified)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Video:</td>
+                            <td>@Html.DisplayFor(model => model.Video)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Meta desc:</td>
+                            <td>@Html.DisplayFor(model => model.MetaDesc)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Meta key:</td>
+                            <td>@Html.DisplayFor(model => model.MetaKey)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500 col-md-2">Short desc:</td>
+                            <td>@Html.DisplayFor(model => model.ShortDesc)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>

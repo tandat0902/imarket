@@ -1,7 +1,7 @@
 ﻿@model iMarket.Models.Product
 
 @{
-    ViewData["Title"] = "Thêm mới sản phẩm";
+    ViewData["Title"] = "iMarket • Thêm mới sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -16,26 +16,35 @@
 <div>
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">THÊM MỚI SẢN PHẨM</h4>
-            <div class="col-md-6 col-12">
+            <div class="col-md-12 col-12">
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-vertical" form asp-action="Create">
+                        <form class="form form-vertical" asp-action="Create">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4 class="card-title">THÊM MỚI SẢN PHẨM</h4>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group float-end">
+                                        <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-body mb-3">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item" role="presentation">
                                                 <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home"
-                                                   aria-selected="true">Thông tin chính</a>
+                                                   aria-selected="true">THÔNG TIN CƠ BẢN</a>
                                             </li>
                                             <li class="nav-item" role="presentation">
                                                 <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-                                                   aria-selected="false">Thông tin phụ</a>
+                                                   aria-selected="false">THÔNG TIN THÊM</a>
                                             </li>
                                             <li class="nav-item" role="presentation">
                                                 <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-                                                   aria-selected="false">Mô tả</a>
+                                                   aria-selected="false">MÔ TẢ</a>
                                             </li>
                                         </ul>
                                         <div class="tab-content mt-3" id="myTabContent">
@@ -87,24 +96,24 @@
                                                 <div class="row">
                                                     <div class="col-4">
                                                         <div class="form-group">
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input asp-for="Active" type="checkbox" class="form-check-input form-check-danger form-check-glow" checked="" />
+                                                            <div class="form-check form-switch">
+                                                                <input asp-for="Active" class="form-check-input" type="checkbox" />
                                                                 <label class="form-check-label" for="Active">Công khai</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-4">
                                                         <div class="form-group">
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input asp-for="BestSellers" type="checkbox" class="form-check-input form-check-danger form-check-glow" checked="" />
+                                                            <div class="form-check form-switch">
+                                                                <input asp-for="BestSellers" class="form-check-input" type="checkbox" />
                                                                 <label class="form-check-label" for="BestSellers">Bán chạy</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-4">
                                                         <div class="form-group">
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input asp-for="HomeFlag" type="checkbox" class="form-check-input form-check-danger form-check-glow" checked="" />
+                                                            <div class="form-check form-switch">
+                                                                <input asp-for="HomeFlag" class="form-check-input" type="checkbox" />
                                                                 <label class="form-check-label" for="HomeFlag">Trang đầu</label>
                                                             </div>
                                                         </div>
@@ -124,42 +133,49 @@
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label asp-for="Title" class="control-label">Tiêu đề:</label>
-                                                        <input asp-for="Title" class="form-control" />
-                                                        <span asp-validation-for="Title" class="text-danger"></span>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label asp-for="Title" class="control-label">Tiêu đề:</label>
+                                                            <input asp-for="Title" class="form-control" />
+                                                            <span asp-validation-for="Title" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label asp-for="Tags" class="control-label">Tags:</label>
+                                                            <input asp-for="Tags" class="form-control" />
+                                                            <span asp-validation-for="Tags" class="text-danger"></span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label asp-for="MetaDesc" class="control-label">Meta Desc:</label>
-                                                        <input asp-for="MetaDesc" class="form-control" />
-                                                        <span asp-validation-for="MetaDesc" class="text-danger"></span>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label asp-for="MetaDesc" class="control-label">Meta Desc:</label>
+                                                            <input asp-for="MetaDesc" class="form-control" />
+                                                            <span asp-validation-for="MetaDesc" class="text-danger"></span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label asp-for="MetaKey" class="control-label">Meta Key:</label>
-                                                        <input asp-for="MetaKey" class="form-control" />
-                                                        <span asp-validation-for="MetaKey" class="text-danger"></span>
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label asp-for="MetaKey" class="control-label">Meta Key:</label>
+                                                            <input asp-for="MetaKey" class="form-control" />
+                                                            <span asp-validation-for="MetaKey" class="text-danger"></span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                                                 <div class="form-group">
                                                     <label asp-for="Description" class="control-label">Mô tả:</label>
-                                                    <textarea asp-for="Description" class="form-control" rows="15"></textarea>
+                                                    <textarea asp-for="Description" class="form-control" rows="10"></textarea>
                                                     <span asp-validation-for="Description" class="text-danger"></span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Tạo mới" class="btn btn-primary" /> |
-                                <a asp-action="Index">Quay lại</a>
                             </div>
                         </form>
                     </div>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1NI/b9/31cY/YQMFLvKZGubISKq1u1BemY3O2QTqWj8=",
+  "Hash": "4s3v16/kftpmvsiEGkY/a1EJ1J67mld1MFHqj2KvYQw=",
   "Source": "iMarket",
   "BasePath": "_content/iMarket",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\AdminAssets\\css\\app.css"
+    },
+    {
+      "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\css\\bonus.css",
+      "SourceId": "iMarket",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\",
+      "BasePath": "_content/iMarket",
+      "RelativePath": "AdminAssets/css/bonus.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\AdminAssets\\css\\bonus.css"
     },
     {
       "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\css\\bootstrap.css",
@@ -646,6 +663,23 @@
       "OriginalItemSpec": "wwwroot\\AdminAssets\\images\\background\\auth.jpg"
     },
     {
+      "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\default.jpg",
+      "SourceId": "iMarket",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\",
+      "BasePath": "_content/iMarket",
+      "RelativePath": "AdminAssets/images/default.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\AdminAssets\\images\\default.jpg"
+    },
+    {
       "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\favicon.png",
       "SourceId": "iMarket",
       "SourceType": "Discovered",
@@ -712,6 +746,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\AdminAssets\\images\\logo.svg"
+    },
+    {
+      "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\logo-admin.png",
+      "SourceId": "iMarket",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\",
+      "BasePath": "_content/iMarket",
+      "RelativePath": "AdminAssets/images/logo-admin.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\AdminAssets\\images\\logo-admin.png"
+    },
+    {
+      "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\logo-client.png",
+      "SourceId": "iMarket",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\",
+      "BasePath": "_content/iMarket",
+      "RelativePath": "AdminAssets/images/logo-client.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\AdminAssets\\images\\logo-client.png"
     },
     {
       "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\samples\\aerial-panoramic-image-of-sansonvale-lake-X6TCENW.jpg",
@@ -10725,6 +10793,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\default.jpg",
+      "SourceId": "iMarket",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\",
+      "BasePath": "_content/iMarket",
+      "RelativePath": "images/products/default.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\default.jpg"
     },
     {
       "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\js\\site.js",

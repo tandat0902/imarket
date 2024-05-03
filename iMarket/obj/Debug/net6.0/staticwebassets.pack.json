@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\AdminAssets\\css\\app.css"
     },
     {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\css\\bonus.css",
+      "PackagePath": "staticwebassets\\AdminAssets\\css\\bonus.css"
+    },
+    {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\AdminAssets\\css\\bootstrap.css"
     },
@@ -129,12 +133,24 @@
       "PackagePath": "staticwebassets\\AdminAssets\\images\\background\\auth.jpg"
     },
     {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\default.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\default.jpg"
+    },
+    {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\favicon.png",
       "PackagePath": "staticwebassets\\AdminAssets\\images\\favicon.png"
     },
     {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\favicon.svg",
       "PackagePath": "staticwebassets\\AdminAssets\\images\\favicon.svg"
+    },
+    {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\logo-admin.png",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\logo-admin.png"
+    },
+    {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\logo-client.png",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\logo-client.png"
     },
     {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\logo.png",
@@ -2499,6 +2515,10 @@
     {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\default.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\default.jpg"
     },
     {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\js\\site.js",

@@ -1,0 +1,36 @@
+﻿.btn-custom {
+    font-size: .75rem;
+}
+
+.btn-custom-view {
+    color: #7F93E5;
+    background: #EDF1FC;
+}
+.btn-custom-view:hover {
+    color: #EDF1FC;
+    background: #7F93E5;
+}
+
+.btn-custom-delete {
+    color: #DC3545;
+    background: #F8D7DA;
+}
+
+.btn-custom-delete:hover {
+    color: #F8D7DA;
+    background: #DC3545;
+}
+
+.btn-custom-edit {
+    color: #50A99E;
+    background: #DFF5F4;
+}
+
+.btn-custom-edit:hover {
+    color: #DFF5F4;
+    background: #50A99E;
+}
+
+.btn-none-box-shadow:focus{
+    box-shadow:none;
+}

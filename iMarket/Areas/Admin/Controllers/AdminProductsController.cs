@@ -9,7 +9,8 @@ using iMarket.Models;
 using PagedList.Core;
 using System.Dynamic;
 using MessagePack;
-using iMarket.Helpper;
+using iMarket.Helper;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace iMarket.Areas.Admin.Controllers
 {
@@ -18,9 +19,12 @@ namespace iMarket.Areas.Admin.Controllers
     {
         private readonly iMarketDBContext _context;
 
-        public AdminProductsController(iMarketDBContext context)
+        public INotyfService _notyfService { get; }
+
+        public AdminProductsController(iMarketDBContext context, INotyfService notyfService)
         {
             _context = context;
+            _notyfService = notyfService;
         }
 
         // GET: Admin/AdminProducts
@@ -91,7 +95,7 @@ namespace iMarket.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductId,ProductName,ShortDesc,Description,UnitPrice,Discount,Thumbnail,Video,DateCreated,DateModified,BestSellers,HomeFlag,Active,Tags,Title,Alias,MetaDesc,MetaKey,UnitsInStock,CategoryId")] Product product, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid || fThumb == null)
             {
                 product.ProductName = Utilities.toTitleCase(product.ProductName);
                 if(fThumb != null)
@@ -110,6 +114,7 @@ namespace iMarket.Areas.Admin.Controllers
 
                 _context.Add(product);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Thêm mới thành công!");
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoryList"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
@@ -145,7 +150,7 @@ namespace iMarket.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid || fThumb == null)
             {
                 try
                 {
@@ -165,11 +170,13 @@ namespace iMarket.Areas.Admin.Controllers
 
                     _context.Update(product);
                     await _context.SaveChangesAsync();
+                    _notyfService.Success("Cập nhật thành công!");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!ProductExists(product.ProductId))
                     {
+                        _notyfService.Error("Có lỗi xảy ra!");
                         return NotFound();
                     }
                     else
@@ -218,6 +225,7 @@ namespace iMarket.Areas.Admin.Controllers
             }
             
             await _context.SaveChangesAsync();
+            _notyfService.Success("Xóa thành công!");
             return RedirectToAction(nameof(Index));
         }
 

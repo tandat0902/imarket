@@ -65,7 +65,7 @@ namespace iMarket.Areas.Admin.Controllers
             {
                 _context.Add(role);
                 await _context.SaveChangesAsync();
-                _notyfService.Success("Thêm dữ liệu thành công!");
+                _notyfService.Success("Thêm mới thành công!");
                 return RedirectToAction(nameof(Index));
             }
             return View(role);
@@ -105,7 +105,7 @@ namespace iMarket.Areas.Admin.Controllers
                 {
                     _context.Update(role);
                     await _context.SaveChangesAsync();
-                    _notyfService.Success("Cập nhật dữ liệu thành công!");
+                    _notyfService.Success("Cập nhật thành công!");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -158,7 +158,7 @@ namespace iMarket.Areas.Admin.Controllers
             }
             
             await _context.SaveChangesAsync();
-            _notyfService.Success("Xóa dữ liệu thành công!");
+            _notyfService.Success("Xóa thành công!");
             return RedirectToAction(nameof(Index));
         }
 

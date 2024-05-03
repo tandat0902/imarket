@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMarket - @ViewData["Title"]</title>
+    <title>@ViewData["Title"]</title>
 
     <link rel="stylesheet" href="~/adminassets/css/bootstrap.css">
 
@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="~/adminassets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="~/adminassets/css/app.css">
+    <link rel="stylesheet" href="~/adminassets/css/bonus.css">
     <link rel="shortcut icon" href="~/adminassets/images/favicon.svg" type="image/x-icon">
 </head>
 <body>
@@ -86,17 +87,6 @@
             <div class="main-content container-fluid">
                 @RenderBody()            
             </div>
-
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2024 &copy; Mikeydev</p>
-                    </div>
-                    <div class="float-end">
-                        @* <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a href="https://saugi.me">Saugi</a></p> *@
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 
