@@ -1,4 +1,42 @@
-﻿.btn-custom {
+﻿.image-selector {
+    background: #C1C1C1;
+    width: 15rem;
+    color: #fff;
+    text-align: center;
+    cursor:pointer;
+}
+
+.image-selector:hover {
+    background: #808080;
+}
+
+.border-img {
+    width: 15rem;
+    height: 15rem;
+    border: 1px solid #DFE3E7;
+    background: #F3F3F3;
+}
+
+.btn-back {
+    color:#fff;
+    background: #51AAB2;
+}
+
+.btn-back:hover {
+    color: #fff;
+    background: #2ec6e8;
+}
+
+.row-hover {
+    position: relative;
+    transition: box-shadow 0.2s ease;
+}
+
+.row-hover:hover {
+    box-shadow: inset 4px 0 0 0 #727E8C;
+}
+
+.btn-custom {
     font-size: .75rem;
 }
 

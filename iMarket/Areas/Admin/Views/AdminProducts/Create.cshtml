@@ -1,7 +1,7 @@
 ﻿@model iMarket.Models.Product
 
 @{
-    ViewData["Title"] = "iMarket • Thêm mới sản phẩm";
+    ViewData["Title"] = "Thêm mới sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -19,14 +19,15 @@
             <div class="col-md-12 col-12">
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-vertical" asp-action="Create">
+                        <form class="form form-vertical" asp-action="Create" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-6">
                                     <h4 class="card-title">THÊM MỚI SẢN PHẨM</h4>
                                 </div>
                                 <div class="col-6">
-                                    <div class="form-group float-end">
-                                        <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                                    <div class="float-end">
+                                        <button type="submit" class="btn icon icon-left btn-primary"><i data-feather="save"></i> Lưu</button>
+                                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="btn icon icon-left btn-back">Quay lại</a>
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +41,7 @@
                                             </li>
                                             <li class="nav-item" role="presentation">
                                                 <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-                                                   aria-selected="false">THÔNG TIN THÊM</a>
+                                                   aria-selected="false">THÔNG TIN SEO</a>
                                             </li>
                                             <li class="nav-item" role="presentation">
                                                 <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact"
@@ -53,82 +54,109 @@
                                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="form-group">
-                                                            <label asp-for="ProductName" class="control-label">Tên sản phẩm:</label>
-                                                            <input asp-for="ProductName" class="form-control" />
-                                                            <span asp-validation-for="ProductName" class="text-danger"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="form-group">
-                                                            <label asp-for="CategoryId" class="control-label">Loại sản phẩm:</label>
-                                                            <select class="form-select" asp-for="CategoryId" asp-items="ViewBag.CategoryList" style="box-shadow:none">
-                                                                <option value="0" disabled selected>-- Chọn loại sản phẩm --</option>
-                                                            </select>
-                                                            <span asp-validation-for="CategoryId" class="text-danger"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="form-group">
-                                                            <label asp-for="UnitPrice" class="control-label">Giá bán:</label>
-                                                            <input asp-for="UnitPrice" class="form-control" />
-                                                            <span asp-validation-for="UnitPrice" class="text-danger"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="form-group">
-                                                            <label asp-for="Discount" class="control-label">Giá giảm:</label>
-                                                            <input asp-for="Discount" class="form-control" />
-                                                            <span asp-validation-for="Discount" class="text-danger"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label asp-for="UnitsInStock" class="control-label">Tồn kho:</label>
-                                                        <input asp-for="UnitsInStock" class="form-control" />
-                                                        <span asp-validation-for="UnitsInStock" class="text-danger"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
                                                     <div class="col-4">
-                                                        <div class="form-group">
-                                                            <div class="form-check form-switch">
-                                                                <input asp-for="Active" class="form-check-input" type="checkbox" />
-                                                                <label class="form-check-label" for="Active">Công khai</label>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <div class="d-flex justify-content-center align-items-center">
+                                                                    <div class="border-img">
+                                                                        <div class="d-flex justify-content-center align-items-center h-100">
+                                                                            <img id="imgPreview" src="~/images/products/default-product.png" alt="Image Preview" style="width: 15rem; height: 15rem" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-center align-items-center" onclick="triggerFileInput()">
+                                                                    <div class="icon icon-left image-selector p-2">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                                                                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+                                                                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z" />
+                                                                        </svg>
+                                                                        UPLOAD ẢNH
+                                                                    </div>
+                                                                </div>
+                                                                <input type="file" asp-for="Thumbnail" id="fThumb" name="fThumb" class="form-control d-none" accept="image/*" onchange="previewImage(event)" />
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-4">
-                                                        <div class="form-group">
-                                                            <div class="form-check form-switch">
-                                                                <input asp-for="BestSellers" class="form-check-input" type="checkbox" />
-                                                                <label class="form-check-label" for="BestSellers">Bán chạy</label>
+                                                    <div class="col-8">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <label for="fake-id" class="control-label">Mã sản phẩm</label>
+                                                                    <span class="text-danger" style="font-size: 0.9rem; ">⁕</span>
+                                                                    <input name="fake-id" class="form-control" disabled />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <label asp-for="ProductName" class="control-label">Tên sản phẩm</label>
+                                                                    <span class="text-danger" style="font-size: 0.9rem; ">⁕</span>
+                                                                    <input asp-for="ProductName" class="form-control" />
+                                                                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <div class="form-group">
-                                                            <div class="form-check form-switch">
-                                                                <input asp-for="HomeFlag" class="form-check-input" type="checkbox" />
-                                                                <label class="form-check-label" for="HomeFlag">Trang đầu</label>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <label asp-for="CategoryId" class="control-label">Loại sản phẩm</label>
+                                                                    <span class="text-danger" style="font-size: 0.9rem; ">⁕</span>
+                                                                    <select class="form-select" asp-for="CategoryId" asp-items="ViewBag.CategoryList" style="box-shadow:none">
+                                                                        <option value="0" disabled selected>-- Chọn loại sản phẩm --</option>
+                                                                    </select>
+                                                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <label asp-for="UnitPrice" class="control-label">Giá bán</label>
+                                                                    <span class="text-danger" style="font-size: 0.9rem; ">⁕</span>
+                                                                    <input asp-for="UnitPrice" class="form-control" />
+                                                                    <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label asp-for="Thumbnail" class="control-label">Ảnh sản phẩm:</label>
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text" id="inputGroupFileAddon01"><i data-feather="upload"></i></span>
-                                                            <div class="form-file">
-                                                                <input type="file" class="form-control-file mt-1" asp-for="Thumbnail">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <label asp-for="Discount" class="control-label">Discount</label>
+                                                                    <input asp-for="Discount" class="form-control" />
+                                                                    <span asp-validation-for="Discount" class="text-danger"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <label asp-for="UnitsInStock" class="control-label">Tồn kho</label>
+                                                                    <input asp-for="UnitsInStock" class="form-control" />
+                                                                    <span asp-validation-for="UnitsInStock" class="text-danger"></span>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <span asp-validation-for="Thumbnail" class="text-danger"></span>
+                                                        <div class="row">
+                                                            <div class="col-4">
+                                                                <div class="form-group">
+                                                                    <div class="form-check form-switch">
+                                                                        <input asp-for="Active" class="form-check-input" type="checkbox" />
+                                                                        <label class="form-check-label" for="Active">Công khai</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="form-group">
+                                                                    <div class="form-check form-switch">
+                                                                        <input asp-for="BestSellers" class="form-check-input" type="checkbox" />
+                                                                        <label class="form-check-label" for="BestSellers">Bán chạy</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="form-group">
+                                                                    <div class="form-check form-switch">
+                                                                        <input asp-for="HomeFlag" class="form-check-input" type="checkbox" />
+                                                                        <label class="form-check-label" for="HomeFlag">Trang đầu</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -136,41 +164,36 @@
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <div class="form-group">
-                                                            <label asp-for="Title" class="control-label">Tiêu đề:</label>
+                                                            <label asp-for="Title" class="control-label">Tiêu đề</label>
                                                             <input asp-for="Title" class="form-control" />
-                                                            <span asp-validation-for="Title" class="text-danger"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="form-group">
-                                                            <label asp-for="Tags" class="control-label">Tags:</label>
+                                                            <label asp-for="Tags" class="control-label">Tags</label>
                                                             <input asp-for="Tags" class="form-control" />
-                                                            <span asp-validation-for="Tags" class="text-danger"></span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <div class="form-group">
-                                                            <label asp-for="MetaDesc" class="control-label">Meta Desc:</label>
+                                                            <label asp-for="MetaDesc" class="control-label">Meta Desc</label>
                                                             <input asp-for="MetaDesc" class="form-control" />
-                                                            <span asp-validation-for="MetaDesc" class="text-danger"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="form-group">
-                                                            <label asp-for="MetaKey" class="control-label">Meta Key:</label>
+                                                            <label asp-for="MetaKey" class="control-label">Meta Key</label>
                                                             <input asp-for="MetaKey" class="form-control" />
-                                                            <span asp-validation-for="MetaKey" class="text-danger"></span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                                                 <div class="form-group">
-                                                    <label asp-for="Description" class="control-label">Mô tả:</label>
+                                                    <label asp-for="Description" class="control-label">Mô tả</label>
                                                     <textarea asp-for="Description" class="form-control" rows="10"></textarea>
-                                                    <span asp-validation-for="Description" class="text-danger"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -184,3 +207,23 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+@*     @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    } *@
+    <script type="text/javascript">
+        function triggerFileInput() {
+            document.getElementById('fThumb').click();
+        }
+
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var output = document.getElementById('imgPreview');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+}

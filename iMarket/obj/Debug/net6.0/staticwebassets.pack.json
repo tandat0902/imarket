@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\AdminAssets\\images\\avatar\\avatar-1.png"
     },
     {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\avatar\\avatar-hanni.jpg",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\avatar\\avatar-hanni.jpg"
+    },
+    {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\avatar\\avatar-s-1.png",
       "PackagePath": "staticwebassets\\AdminAssets\\images\\avatar\\avatar-s-1.png"
     },
@@ -151,6 +155,10 @@
     {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\logo-client.png",
       "PackagePath": "staticwebassets\\AdminAssets\\images\\logo-client.png"
+    },
+    {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\logo-i-admin.png",
+      "PackagePath": "staticwebassets\\AdminAssets\\images\\logo-i-admin.png"
     },
     {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\AdminAssets\\images\\logo.png",
@@ -2517,8 +2525,28 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\cai-ngot.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\cai-ngot.jpg"
+    },
+    {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\cam.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\cam.jpg"
+    },
+    {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\default-product.png",
+      "PackagePath": "staticwebassets\\images\\products\\default-product.png"
+    },
+    {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\default.jpg",
       "PackagePath": "staticwebassets\\images\\products\\default.jpg"
+    },
+    {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\dua-hau.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\dua-hau.jpg"
+    },
+    {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\rau-muong.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\rau-muong.jpg"
     },
     {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\js\\site.js",

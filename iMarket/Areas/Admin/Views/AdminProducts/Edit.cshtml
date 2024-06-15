@@ -19,7 +19,7 @@
             <div class="col-md-12 col-12">
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-vertical" asp-action="Edit">
+                        <form class="form form-vertical" asp-action="Edit" enctype="multipart/form-data">
                             <input type="hidden" asp-for="ProductId" />
                             <input type="hidden" asp-for="Thumbnail" />
                             <input type="hidden" asp-for="DateCreated" />
@@ -128,7 +128,7 @@
                                                         <div class="input-group mb-3">
                                                             <span class="input-group-text" id="inputGroupFileAddon01"><i data-feather="upload"></i></span>
                                                             <div class="form-file">
-                                                                <input type="file" class="form-control-file mt-1" asp-for="Thumbnail">
+                                                                <input type="file" class="form-control-file mt-1" asp-for="Thumbnail" name="fThumb">
                                                             </div>
                                                         </div>
                                                         <span asp-validation-for="Thumbnail" class="text-danger"></span>

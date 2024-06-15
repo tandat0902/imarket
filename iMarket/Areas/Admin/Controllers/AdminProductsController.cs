@@ -95,7 +95,11 @@ namespace iMarket.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductId,ProductName,ShortDesc,Description,UnitPrice,Discount,Thumbnail,Video,DateCreated,DateModified,BestSellers,HomeFlag,Active,Tags,Title,Alias,MetaDesc,MetaKey,UnitsInStock,CategoryId")] Product product, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
-            if (ModelState.IsValid || fThumb == null)
+            if (fThumb == null)
+            {
+                ModelState.Remove(nameof(fThumb));
+            }
+            if (ModelState.IsValid)
             {
                 product.ProductName = Utilities.toTitleCase(product.ProductName);
                 if(fThumb != null)
@@ -108,6 +112,14 @@ namespace iMarket.Areas.Admin.Controllers
                 {
                     product.Thumbnail = "default.jpg";
                 }
+                if (string.IsNullOrEmpty(product.UnitsInStock.ToString()))
+                {
+                    product.UnitsInStock = 0;
+                }
+                if (string.IsNullOrEmpty(product.Discount.ToString()))
+                {
+                    product.Discount = 0;
+                }
                 product.Alias = Utilities.seoUrl(product.ProductName);
                 product.DateCreated = DateTime.Now;
                 product.DateModified = DateTime.Now;
@@ -118,6 +130,7 @@ namespace iMarket.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoryList"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
+            _notyfService.Error("Vui lòng kiểm tra lại!");
             return View(product);
         }
 
@@ -150,7 +163,7 @@ namespace iMarket.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid || fThumb == null)
+            if (ModelState.IsValid)
             {
                 try
                 {

@@ -104,7 +104,7 @@ namespace iMarket.Helper
         {
             try
             {
-                if(newName == null)
+                if (newName == null)
                 {
                     newName = file.FileName;
                 }
@@ -117,15 +117,20 @@ namespace iMarket.Helper
                 {
                     return null;
                 }
-                else
-                {
-                    using (var stream = new FileStream(path, FileMode.Create))
-                    {
-                        await file.CopyToAsync(stream);
-                    }
 
-                    return newName;
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
                 }
+
+                string filePath = Path.Combine(path, newName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                return newName;
             }
             catch (Exception ex)
             {
