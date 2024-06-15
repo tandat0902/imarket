@@ -2529,6 +2529,10 @@
       "PackagePath": "staticwebassets\\images\\products\\cai-ngot.jpg"
     },
     {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\cam-uc.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\cam-uc.jpg"
+    },
+    {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\cam.jpg",
       "PackagePath": "staticwebassets\\images\\products\\cam.jpg"
     },
@@ -2541,8 +2545,16 @@
       "PackagePath": "staticwebassets\\images\\products\\default.jpg"
     },
     {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\dua-hau-khong-hat.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\dua-hau-khong-hat.jpg"
+    },
+    {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\dua-hau.jpg",
       "PackagePath": "staticwebassets\\images\\products\\dua-hau.jpg"
+    },
+    {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\nho-xanh-ninh-thuan.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\nho-xanh-ninh-thuan.jpg"
     },
     {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\rau-muong.jpg",

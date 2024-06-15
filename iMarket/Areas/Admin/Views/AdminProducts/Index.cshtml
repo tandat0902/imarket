@@ -39,6 +39,12 @@
                 <div class="col-md-5">
                     <p class="float-end">
                         <a asp-action="Create" class="btn icon icon-left btn-primary"><i data-feather="plus-square"></i> Tạo mới</a>
+                        <a href="#" class="btn icon icon-left btn-delete" id="delete-all-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+                            </svg>
+                            Xóa tất cả
+                        </a>
                     </p>
                 </div>
             </div>
@@ -146,6 +152,24 @@
     </div>
 </div>
 
+<!-- Bảng xác nhận xóa -->
+<div id="confirm-delete-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header-noti">
+            <span id="cancel-delete-btn" class="close">&times;</span>
+        </div>
+        <div class="modal-noti">
+            <span>Bạn có chắc chắn muốn xóa tất cả sản phẩm không?</span>
+        </div>
+        <div class="model-tool">
+            <div class="float-end">
+                <span id="cancel-btn" class="btn icon btn-delete">Bỏ qua</span>
+                <span id="confirm-delete-btn" class="btn icon btn-danger">Đồng ý</span>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
     <script>
         $(document).ready(function () {
@@ -193,6 +217,29 @@
                     }
                 });
             });
+
+            //---------- MODAL CONFIRMATION FOR DELETE ALL
+            $('#delete-all-btn').click(function () {
+                $('#confirm-delete-modal').show();
+            });
+
+            $('#confirm-delete-btn').click(function () {
+                window.location.href = '@Url.Action("DeleteAll", "AdminProducts")';
+            });
+
+            $('#cancel-delete-btn').click(function () {
+                $('#confirm-delete-modal').hide();
+            });
+
+            $('#cancel-btn').click(function () {
+                $('#confirm-delete-modal').hide();
+            });
+
+            window.onclick = function (event) {
+                if (event.target == document.getElementById('confirm-delete-modal')) {
+                    $('#confirm-delete-modal').hide();
+                }
+            };
         });
     </script>
 }

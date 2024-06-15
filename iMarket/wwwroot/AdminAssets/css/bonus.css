@@ -1,6 +1,53 @@
-﻿.image-selector {
+﻿.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 100px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    border: 1px solid #888;
+    width: 23rem;
+    border-radius: 0.5rem;
+}
+
+.modal-noti {
+    padding-left:2rem;
+    font-weight: bold;
+    align-items:center;
+}
+
+.model-tool {
+    padding: 1rem;
+}
+
+.close {
+    color: #808080;
+    float: right;
+    padding: 0 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    text-decoration: none;
+    color: #C1C1C1;
+    cursor: pointer;
+}
+
+.image-selector {
     background: #C1C1C1;
-    width: 15rem;
+    width: 12rem;
     color: #fff;
     text-align: center;
     cursor:pointer;
@@ -11,20 +58,30 @@
 }
 
 .border-img {
-    width: 15rem;
-    height: 15rem;
+    width: 12rem;
+    height: 12rem;
     border: 1px solid #DFE3E7;
     background: #F3F3F3;
 }
 
-.btn-back {
-    color:#fff;
+.btn-delete {
+    color: #fff;
+    background: #B2B3B3;
+}
+
+.btn-delete:hover {
+    color: #fff;
+    background: #9FA4A1;
+}
+
+.btn-basic {
+    color: #fff;
     background: #51AAB2;
 }
 
-.btn-back:hover {
+.btn-basic:hover {
     color: #fff;
-    background: #2ec6e8;
+    background: #336666;
 }
 
 .row-hover {

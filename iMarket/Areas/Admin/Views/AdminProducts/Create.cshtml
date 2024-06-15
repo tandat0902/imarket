@@ -19,7 +19,7 @@
             <div class="col-md-12 col-12">
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-vertical" asp-action="Create" enctype="multipart/form-data">
+                        <form class="form form-vertical" asp-action="Create" enctype="multipart/form-data" form id="myForm">
                             <div class="row">
                                 <div class="col-6">
                                     <h4 class="card-title">THÊM MỚI SẢN PHẨM</h4>
@@ -27,7 +27,8 @@
                                 <div class="col-6">
                                     <div class="float-end">
                                         <button type="submit" class="btn icon icon-left btn-primary"><i data-feather="save"></i> Lưu</button>
-                                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="btn icon icon-left btn-back">Quay lại</a>
+                                        <button type="button" class="btn icon icon-left btn-basic" onclick="resetForm()">Làm lại</button>
+                                        <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="btn icon icon-left btn-basic">Quay lại</a>
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +38,7 @@
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item" role="presentation">
                                                 <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home"
-                                                   aria-selected="true">THÔNG TIN CƠ BẢN</a>
+                                                   aria-selected="true">THÔNG TIN CHUNG</a>
                                             </li>
                                             <li class="nav-item" role="presentation">
                                                 <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile"
@@ -60,7 +61,7 @@
                                                                 <div class="d-flex justify-content-center align-items-center">
                                                                     <div class="border-img">
                                                                         <div class="d-flex justify-content-center align-items-center h-100">
-                                                                            <img id="imgPreview" src="~/images/products/default-product.png" alt="Image Preview" style="width: 15rem; height: 15rem" />
+                                                                            <img id="imgPreview" src="~/images/products/default-product.png" alt="Image Preview" style="width: 12rem; height: 12rem" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -162,30 +163,42 @@
                                             </div>
                                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                                 <div class="row">
-                                                    <div class="col-6">
+                                                    <div class="col-4">
                                                         <div class="form-group">
                                                             <label asp-for="Title" class="control-label">Tiêu đề</label>
                                                             <input asp-for="Title" class="form-control" />
                                                         </div>
                                                     </div>
-                                                    <div class="col-6">
+                                                    <div class="col-4">
                                                         <div class="form-group">
                                                             <label asp-for="Tags" class="control-label">Tags</label>
                                                             <input asp-for="Tags" class="form-control" />
                                                         </div>
                                                     </div>
+                                                    <div class="col-4">
+                                                        <div class="form-group">
+                                                            <label asp-for="ShortDesc" class="control-label">Short Desc</label>
+                                                            <input asp-for="ShortDesc" class="form-control" />
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6">
+                                                    <div class="col-4">
                                                         <div class="form-group">
                                                             <label asp-for="MetaDesc" class="control-label">Meta Desc</label>
                                                             <input asp-for="MetaDesc" class="form-control" />
                                                         </div>
                                                     </div>
-                                                    <div class="col-6">
+                                                    <div class="col-4">
                                                         <div class="form-group">
                                                             <label asp-for="MetaKey" class="control-label">Meta Key</label>
                                                             <input asp-for="MetaKey" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="form-group">
+                                                            <label asp-for="Video" class="control-label">Video</label>
+                                                            <input asp-for="Video" class="form-control" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -224,6 +237,14 @@
                 output.src = reader.result;
             }
             reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function resetForm() {
+            document.getElementById("myForm").reset();
+
+            var defaultImage = "/images/products/default-product.png";
+            var output = document.getElementById('imgPreview');
+            output.src = defaultImage;
         }
     </script>
 }

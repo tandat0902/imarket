@@ -229,7 +229,7 @@ namespace iMarket.Areas.Admin.Controllers
         {
             if (_context.Products == null)
             {
-                return Problem("Entity set 'iMarketDBContext.Products'  is null.");
+                return Problem("Entity set 'iMarketDBContext.Products' is null.");
             }
             var product = await _context.Products.FindAsync(id);
             if (product != null)
@@ -239,6 +239,28 @@ namespace iMarket.Areas.Admin.Controllers
             
             await _context.SaveChangesAsync();
             _notyfService.Success("Xóa thành công!");
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> DeleteAll()
+        {
+            if (_context.Products == null)
+            {
+                return Problem("Entity set 'iMarketDBContext.Products' is null.");
+            }
+
+            var products = await _context.Products.ToListAsync();
+            if (products.Any())
+            {
+                _context.Products.RemoveRange(products);
+                await _context.SaveChangesAsync();
+                _notyfService.Success("Xóa tất cả sản phẩm thành công!");
+            }
+            else
+            {
+                _notyfService.Warning("Không có sản phẩm nào để xóa.");
+            }
+
             return RedirectToAction(nameof(Index));
         }
 

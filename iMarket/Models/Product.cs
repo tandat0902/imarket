@@ -23,7 +23,7 @@ namespace iMarket.Models
         [RegularExpression(@"^\d+$", ErrorMessage = "Giá sản phẩm phải là một số nguyên hợp lệ!")]
         public decimal? UnitPrice { get; set; }
 
-        [Range(0, int.MaxValue, ErrorMessage = "Tồn kho phải là số không âm.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Tồn kho phải là số không âm!")]
         public int? Discount { get; set; }
         public string? Thumbnail { get; set; }
         public string? Video { get; set; }
@@ -38,7 +38,7 @@ namespace iMarket.Models
         public string? MetaDesc { get; set; }
         public string? MetaKey { get; set; }
 
-        [Range(0, int.MaxValue, ErrorMessage = "Tồn kho phải là số không âm.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Tồn kho phải là số không âm!")]
         public int? UnitsInStock { get; set; }
 
         [Required(ErrorMessage = "Vui lòng chọn danh mục hợp lệ!")]

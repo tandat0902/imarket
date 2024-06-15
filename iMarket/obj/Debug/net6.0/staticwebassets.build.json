@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iYg/RkljFs/kGFB8NF2YN0cv2Y9cMWZPKrbNc/TPY9E=",
+  "Hash": "rRHSaBNTsWtb/lrZrS1KTD7fZotl01M1Xprfq26XXn0=",
   "Source": "iMarket",
   "BasePath": "_content/iMarket",
   "Mode": "Default",
@@ -10863,6 +10863,23 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\cam.jpg"
     },
     {
+      "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\cam-uc.jpg",
+      "SourceId": "iMarket",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\",
+      "BasePath": "_content/iMarket",
+      "RelativePath": "images/products/cam-uc.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\cam-uc.jpg"
+    },
+    {
       "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\default.jpg",
       "SourceId": "iMarket",
       "SourceType": "Discovered",
@@ -10912,6 +10929,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\dua-hau.jpg"
+    },
+    {
+      "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\dua-hau-khong-hat.jpg",
+      "SourceId": "iMarket",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\",
+      "BasePath": "_content/iMarket",
+      "RelativePath": "images/products/dua-hau-khong-hat.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\dua-hau-khong-hat.jpg"
+    },
+    {
+      "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\nho-xanh-ninh-thuan.jpg",
+      "SourceId": "iMarket",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\",
+      "BasePath": "_content/iMarket",
+      "RelativePath": "images/products/nho-xanh-ninh-thuan.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\nho-xanh-ninh-thuan.jpg"
     },
     {
       "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\rau-muong.jpg",
