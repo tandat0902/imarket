@@ -11,6 +11,7 @@ using System.Dynamic;
 using MessagePack;
 using iMarket.Helper;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using System.Drawing.Printing;
 
 namespace iMarket.Areas.Admin.Controllers
 {
@@ -31,7 +32,6 @@ namespace iMarket.Areas.Admin.Controllers
         public IActionResult Index(int? page, int catId = 0)
         {
             var pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var pageSize = 20;
             List<Product> ProductList = new List<Product>();
 
             if(catId != 0)
@@ -42,7 +42,7 @@ namespace iMarket.Areas.Admin.Controllers
             {
                 ProductList = _context.Products.AsNoTracking().Include(x => x.Category).OrderByDescending(x => x.DateCreated).ToList();
             }
-            PagedList<Product> models = new PagedList<Product>(ProductList.AsQueryable(), pageNumber, pageSize);
+            PagedList<Product> models = new PagedList<Product>(ProductList.AsQueryable(), pageNumber, Utilities.PAGE_SIZE);
 
             ViewBag.CurrentCatID = catId;
             ViewBag.CurrentPage = pageNumber;
@@ -223,24 +223,38 @@ namespace iMarket.Areas.Admin.Controllers
         }
 
         // POST: Admin/AdminProducts/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        [HttpDelete]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Products == null)
             {
-                return Problem("Entity set 'iMarketDBContext.Products' is null.");
+                _notyfService.Error("Có lỗi xảy ra!");
+                return Json(new { success = false });
             }
-            var product = await _context.Products.FindAsync(id);
-            if (product != null)
+
+            try
             {
-                _context.Products.Remove(product);
+                var product = await _context.Products.FindAsync(id);
+                if (product != null)
+                {
+                    _context.Products.Remove(product);
+                    await _context.SaveChangesAsync();
+                    _notyfService.Success("Xóa thành công!");
+                    return Json(new { success = true, redirectUrl = Url.Action("Index", "AdminProducts", new { Area = "Admin" }) });
+                }
+                else
+                {
+                    _notyfService.Error("Có lỗi xảy ra!");
+                    return Json(new { success = false });
+                }
             }
-            
-            await _context.SaveChangesAsync();
-            _notyfService.Success("Xóa thành công!");
-            return RedirectToAction(nameof(Index));
+            catch (Exception ex)
+            {
+                // Log exception details here if needed
+                return Json(new { success = false, message = "An error occurred while deleting the product: " + ex.Message });
+            }
         }
+
 
         public async Task<IActionResult> DeleteAll()
         {

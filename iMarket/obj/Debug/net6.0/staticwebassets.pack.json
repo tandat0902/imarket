@@ -2525,6 +2525,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\bi-do-ho-lo.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\bi-do-ho-lo.jpg"
+    },
+    {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\cai-ngot.jpg",
       "PackagePath": "staticwebassets\\images\\products\\cai-ngot.jpg"
     },
@@ -2535,6 +2539,10 @@
     {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\cam.jpg",
       "PackagePath": "staticwebassets\\images\\products\\cam.jpg"
+    },
+    {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\chanh-day.png",
+      "PackagePath": "staticwebassets\\images\\products\\chanh-day.png"
     },
     {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\default-product.png",
@@ -2553,12 +2561,28 @@
       "PackagePath": "staticwebassets\\images\\products\\dua-hau.jpg"
     },
     {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\khoai-lang-nhat.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\khoai-lang-nhat.jpg"
+    },
+    {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\man-ha-noi.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\man-ha-noi.jpg"
+    },
+    {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\nho-xanh-ninh-thuan.jpg",
       "PackagePath": "staticwebassets\\images\\products\\nho-xanh-ninh-thuan.jpg"
     },
     {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\rau-muong.jpg",
       "PackagePath": "staticwebassets\\images\\products\\rau-muong.jpg"
+    },
+    {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\tao.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\tao.jpg"
+    },
+    {
+      "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\xa-lach.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\xa-lach.jpg"
     },
     {
       "Id": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\js\\site.js",

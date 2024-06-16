@@ -16,94 +16,240 @@
 <div>
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">THÔNG TIN SẢN PHẨM - @Model.ProductName.ToUpper()</h4>
-            <div class="table-responsive">
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">ID:</td>
-                            <td>@Html.DisplayFor(model => model.ProductId)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Ảnh sản phẩm:</td>
-                            <td>
-                                <img src="~/images/products/@Model.Thumbnail" width="150">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Tên sản phẩm:</td>
-                            <td>@Html.DisplayFor(model => model.ProductName)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Danh mục:</td>
-                            <td>@Html.DisplayFor(model => model.Category.CategoryName)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Đơn giá:</td>
-                            <td>@Model.UnitPrice.Value.ToString("#,##0") vnđ</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Discount:</td>
-                            <td>@Html.DisplayFor(model => model.Discount) %</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Tồn kho:</td>
-                            <td>@Html.DisplayFor(model => model.UnitsInStock)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Mô tả:</td>
-                            <td>@Html.DisplayFor(model => model.Description)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Trạng thái:</td>
-                            <td>@Html.DisplayFor(model => model.Active)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Bán chạy:</td>
-                            <td>@Html.DisplayFor(model => model.BestSellers)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Trang đầu:</td>
-                            <td>@Html.DisplayFor(model => model.HomeFlag)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Tags:</td>
-                            <td>@Html.DisplayFor(model => model.Tags)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Tiêu đề:</td>
-                            <td>@Html.DisplayFor(model => model.Title)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Alias:</td>
-                            <td>@Html.DisplayFor(model => model.Alias)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Ngày tạo:</td>
-                            <td>@Html.DisplayFor(model => model.DateCreated)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Ngày sửa:</td>
-                            <td>@Html.DisplayFor(model => model.DateModified)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Video:</td>
-                            <td>@Html.DisplayFor(model => model.Video)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Meta desc:</td>
-                            <td>@Html.DisplayFor(model => model.MetaDesc)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Meta key:</td>
-                            <td>@Html.DisplayFor(model => model.MetaKey)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-bold-500 col-md-2">Short desc:</td>
-                            <td>@Html.DisplayFor(model => model.ShortDesc)</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="t-item">
+                <div class="t-header">
+                    <span>THÔNG TIN CHUNG</span>
+                </div>
+                <div class="t-content">
+                    <div class="row flex-content">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <img src="~/images/products/@Model.Thumbnail" alt="Image Preview" style="width: 100%; height:15rem; object-fit:contain" />
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="w-100 flex-content">
+                                        <div class="editor-label text-al-end">
+                                            <span>Mã sản phẩm:</span>
+                                        </div>
+                                        <div class="editor-field">
+                                            <span class="font-bold text-danger mg-l-1">@Html.DisplayFor(model => model.ProductId)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="w-100 flex-content">
+                                        <div class="editor-label text-al-end">
+                                            <span>Tên sản phẩm:</span>
+                                        </div>
+                                        <div class="editor-field">
+                                            <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.ProductName)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="w-100 flex-content">
+                                        <div class="editor-label text-al-end">
+                                            <span>Danh mục:</span>
+                                        </div>
+                                        <div class="editor-field">
+                                            <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.Category.CategoryName)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="w-100 flex-content">
+                                        <div class="editor-label text-al-end">
+                                            <span>Đơn giá:</span>
+                                        </div>
+                                        <div class="editor-field">
+                                            <span class="font-bold text-value mg-l-1">@Model.UnitPrice.Value.ToString("#,##0") vnđ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="w-100 flex-content">
+                                        <div class="editor-label text-al-end">
+                                            <span>Discount:</span>
+                                        </div>
+                                        <div class="editor-field">
+                                            <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.Discount) %</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="w-100 flex-content">
+                                        <div class="editor-label text-al-end">
+                                            <span>Tồn kho:</span>
+                                        </div>
+                                        <div class="editor-field">
+                                            <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.UnitsInStock)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="w-100 flex-content">
+                                        <div class="editor-label text-al-end">
+                                            <span>Ngày tạo:</span>
+                                        </div>
+                                        <div class="editor-field">
+                                            <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.DateCreated)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="w-100 flex-content">
+                                        <div class="editor-label text-al-end">
+                                            <span>Ngày cập nhật:</span>
+                                        </div>
+                                        <div class="editor-field">
+                                            <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.DateModified)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="w-100 flex-content">
+                                        <div class="editor-label text-al-end">
+                                            <span>Công khai:</span>
+                                        </div>
+                                        <div class="editor-field">
+                                            <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.Active)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="w-100 flex-content">
+                                        <div class="editor-label text-al-end">
+                                            <span>Bán chạy:</span>
+                                        </div>
+                                        <div class="editor-field">
+                                            <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.BestSellers)</span>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="w-100 flex-content">
+                                        <div class="editor-label text-al-end">
+                                            <span>Trang đầu:</span>
+                                        </div>
+                                        <div class="editor-field">
+                                            <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.HomeFlag)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="t-item">
+                <div class="t-header">
+                    <span>THÔNG TIN SEO</span>
+                </div>
+                <div class="t-content">
+                    <div class="row flex-content">
+                        <div class="col-4">
+                            <div class="w-100 flex-content">
+                                <div class="editor-label text-al-end">
+                                    <span>Tiêu đề:</span>
+                                </div>
+                                <div class="editor-field">
+                                    <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.Title)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="w-100 flex-content">
+                                <div class="editor-label text-al-end">
+                                    <span>Tags:</span>
+                                </div>
+                                <div class="editor-field">
+                                    <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.Tags)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="w-100 flex-content">
+                                <div class="editor-label text-al-end">
+                                    <span>Alias:</span>
+                                </div>
+                                <div class="editor-field">
+                                    <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.Alias)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row flex-content mt-3">
+                        <div class="col-4">
+                            <div class="w-100 flex-content">
+                                <div class="editor-label text-al-end">
+                                    <span>Meta Desc:</span>
+                                </div>
+                                <div class="editor-field">
+                                    <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.MetaDesc)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="w-100 flex-content">
+                                <div class="editor-label text-al-end">
+                                    <span>Short Desc:</span>
+                                </div>
+                                <div class="editor-field">
+                                    <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.ShortDesc)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="w-100 flex-content">
+                                <div class="editor-label text-al-end">
+                                    <span>Meta Key:</span>
+                                </div>
+                                <div class="editor-field">
+                                    <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.MetaKey)</span>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="row flex-content mt-3">
+                        <div class="col-4">
+                            <div class="w-100 flex-content">
+                                <div class="editor-label text-al-end">
+                                    <span>Video:</span>
+                                </div>
+                                <div class="editor-field">
+                                    <span class="font-bold text-value mg-l-1">@Html.DisplayFor(model => model.Video)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="t-item">
+                <div class="t-header">
+                    <span>MÔ TẢ</span>
+                </div>
+                <div class="t-content">
+                    <div class="des-content">
+                        <span class="font-bold mg-l-1">@Html.DisplayFor(model => model.Description)</span>
+                    </div>                    
+                </div>
             </div>
         </div>
     </div>

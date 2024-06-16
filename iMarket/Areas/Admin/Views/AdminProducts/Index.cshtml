@@ -24,7 +24,7 @@
                     <fieldset class="form-group">
                         <div class="input-group">
                             <span class="input-group-text"><i data-feather="search"></i></span>
-                            <input id="keyword" name="keyword" type="text" class="form-control" placeholder="Bạn cần tìm gì?">
+                            <input id="keyword" name="keyword" type="text" class="form-control" placeholder="Nhập tên sản phẩm bạn cần tìm...">
                         </div>
                     </fieldset>
                 </div>
@@ -40,8 +40,9 @@
                     <p class="float-end">
                         <a asp-action="Create" class="btn icon icon-left btn-primary"><i data-feather="plus-square"></i> Tạo mới</a>
                         <a href="#" class="btn icon icon-left btn-delete" id="delete-all-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
                             </svg>
                             Xóa tất cả
                         </a>
@@ -57,7 +58,7 @@
                                     <th>
                                         STT
                                     </th>
-                                    <th>
+                                    <th class="col-md-3">
                                         Tên sản phẩm
                                     </th>
                                     <th>
@@ -123,14 +124,19 @@
                                                 }
                                             </td>
                                             <td>
-                                                <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn icon btn-custom btn-custom-delete btn-none-box-shadow" title="Xóa">
+                                                <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn icon btn-custom btn-custom-edit btn-none-box-shadow" title="Sửa dữ liệu">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
+                                                    </svg>
+                                                </a>
+                                                @* <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn icon btn-custom btn-custom-delete btn-none-box-shadow" title="Xóa dữ liệu">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                                         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
                                                     </svg>
-                                                </a>
-                                                <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn icon btn-custom btn-custom-edit btn-none-box-shadow" title="Chỉnh sửa">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                                                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
+                                                </a> *@
+                                                <a id="delete-product-btn" class="btn icon btn-custom btn-custom-delete btn-none-box-shadow" title="Xóa dữ liệu" data-product-id="@item.ProductId" data-product-name="@item.ProductName">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
                                                     </svg>
                                                 </a>
                                             </td> 
@@ -152,19 +158,57 @@
     </div>
 </div>
 
-<!-- Bảng xác nhận xóa -->
+<!-- Bảng xác nhận xóa tất cả -->
 <div id="confirm-delete-modal" class="modal">
     <div class="modal-content">
         <div class="modal-header-noti">
+            <span class="title-noti vertical-text">THÔNG BÁO XÁC NHẬN</span>
             <span id="cancel-delete-btn" class="close">&times;</span>
         </div>
-        <div class="modal-noti">
-            <span>Bạn có chắc chắn muốn xóa tất cả sản phẩm không?</span>
+        <div class="row">
+            <div class="col-3">
+                <div class="img-question">
+                    <img src="https://smas.edu.vn/Content/images/alert-question.png" width="90" />
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="modal-noti">
+                    <span>Bạn có chắc chắn muốn xóa tất cả sản phẩm không? (Sau khi nhấn <b class="text-danger">Đồng ý</b> bạn sẽ không thể khôi phục lại dữ liệu.)</span>
+                </div>
+            </div>
         </div>
         <div class="model-tool">
             <div class="float-end">
                 <span id="cancel-btn" class="btn icon btn-delete">Bỏ qua</span>
                 <span id="confirm-delete-btn" class="btn icon btn-danger">Đồng ý</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bảng xác nhận xóa 1 sản phẩm -->
+<div id="confirm-delete-product-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header-noti">
+            <span class="title-noti vertical-text">THÔNG BÁO XÁC NHẬN</span>
+            <span id="cancel-delete-product-btn" class="close">&times;</span>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="img-question">
+                    <img src="https://smas.edu.vn/Content/images/alert-question.png" width="90" />
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="modal-noti">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="model-tool">
+            <div class="float-end">
+                <span id="cancel-product-btn" class="btn icon btn-delete">Bỏ qua</span>
+                <span id="confirm-delete-product-btn" class="btn icon btn-danger">Đồng ý</span>
             </div>
         </div>
     </div>
@@ -218,7 +262,7 @@
                 });
             });
 
-            //---------- MODAL CONFIRMATION FOR DELETE ALL
+            //---------- MODAL CONFIRMATION FOR DELETE ALL PRODUCT
             $('#delete-all-btn').click(function () {
                 $('#confirm-delete-modal').show();
             });
@@ -238,6 +282,50 @@
             window.onclick = function (event) {
                 if (event.target == document.getElementById('confirm-delete-modal')) {
                     $('#confirm-delete-modal').hide();
+                }
+            };
+
+            //---------- MODAL CONFIRMATION FOR DELETE PRODUCT
+            $(document).on('click', '#delete-product-btn', function () {
+                var productId = $(this).data('product-id');
+                var productName = $(this).data('product-name');
+                $('#confirm-delete-product-modal .modal-noti span').html('Bạn có chắc chắn muốn xóa sản phẩm <b class="text-danger">' + "\"" + productName + "\"" + '</b> không? (Sau khi nhấn <b class="text-danger">Đồng ý</b> bạn sẽ không thể khôi phục lại dữ liệu.)');
+                $('#confirm-delete-product-modal').data('product-id', productId);
+                $('#confirm-delete-product-modal').show();
+            });
+
+            $('#confirm-delete-product-btn').click(function () {
+                var productId = $('#confirm-delete-product-modal').data('product-id');
+                $.ajax({
+                    url: '/Admin/AdminProducts/DeleteConfirmed/' + productId,
+                    type: 'DELETE',
+                    headers: {
+                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.href = response.redirectUrl; // Điều hướng tới URL mới sau khi xóa thành công
+                        } else {
+                            alert(response.message); // Hiển thị thông báo chi tiết từ server
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Có lỗi xảy ra. Vui lòng thử lại.'); // Hiển thị thông báo lỗi tổng quát nếu có lỗi không mong muốn
+                    }
+                });
+            });
+
+            $('#cancel-delete-product-btn').click(function () {
+                $('#confirm-delete-product-modal').hide();
+            });
+
+            $('#cancel-product-btn').click(function () {
+                $('#confirm-delete-product-modal').hide();
+            });
+
+            window.onclick = function (event) {
+                if (event.target == document.getElementById('confirm-delete-product-modal')) {
+                    $('#confirm-delete-product-modal').hide();
                 }
             };
         });

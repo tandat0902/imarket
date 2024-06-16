@@ -6,7 +6,7 @@ namespace iMarket.Helper
     public static class Utilities
     {
 
-        public static int PAGE_SIZE = 15;
+        public static int PAGE_SIZE = 10;
         public static void createIfMissing(string path)
         {
             bool folderExists = Directory.Exists(path);
