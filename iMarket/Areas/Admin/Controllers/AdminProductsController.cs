@@ -158,6 +158,11 @@ namespace iMarket.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ShortDesc,Description,UnitPrice,Discount,Thumbnail,Video,DateCreated,DateModified,BestSellers,HomeFlag,Active,Tags,Title,Alias,MetaDesc,MetaKey,UnitsInStock,CategoryId")] Product product, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
+            if (fThumb == null)
+            {
+                ModelState.Remove(nameof(fThumb));
+            }
+
             if (id != product.ProductId)
             {
                 return NotFound();
@@ -177,6 +182,14 @@ namespace iMarket.Areas.Admin.Controllers
                     if (string.IsNullOrEmpty(product.Thumbnail))
                     {
                         product.Thumbnail = "default.jpg";
+                    }
+                    if (string.IsNullOrEmpty(product.UnitsInStock.ToString()))
+                    {
+                        product.UnitsInStock = 0;
+                    }
+                    if (string.IsNullOrEmpty(product.Discount.ToString()))
+                    {
+                        product.Discount = 0;
                     }
                     product.Alias = Utilities.seoUrl(product.ProductName);
                     product.DateModified = DateTime.Now;
@@ -200,6 +213,7 @@ namespace iMarket.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoryList"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
+            _notyfService.Error("Vui lòng kiểm tra lại!");
             return View(product);
         }
 

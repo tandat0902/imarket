@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dnvz/gnQIe4i4S9rAZn3hCz4upL9jJ4FsBjtfZzajmo=",
+  "Hash": "cNBy7zFgo7jRH5RF2h95Fl/dcMiLQYSKTl8Moj7sFFw=",
   "Source": "iMarket",
   "BasePath": "_content/iMarket",
   "Mode": "Default",
@@ -11065,6 +11065,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\tao.jpg"
+    },
+    {
+      "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\tao-dazzle-nhap-khau-new-zealand-size-5-7-traikg-1kg.jpg",
+      "SourceId": "iMarket",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\",
+      "BasePath": "_content/iMarket",
+      "RelativePath": "images/products/tao-dazzle-nhap-khau-new-zealand-size-5-7-traikg-1kg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\tao-dazzle-nhap-khau-new-zealand-size-5-7-traikg-1kg.jpg"
+    },
+    {
+      "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\tao-xanh-nam-phi-1kg.jpg",
+      "SourceId": "iMarket",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\",
+      "BasePath": "_content/iMarket",
+      "RelativePath": "images/products/tao-xanh-nam-phi-1kg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\tao-xanh-nam-phi-1kg.jpg"
     },
     {
       "Identity": "D:\\iprojects\\iMarket\\iMarket\\wwwroot\\images\\products\\xa-lach.jpg",

@@ -125,6 +125,11 @@ namespace iMarket.Helper
 
                 string filePath = Path.Combine(path, newName);
 
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     await file.CopyToAsync(stream);
